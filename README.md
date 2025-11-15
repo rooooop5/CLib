@@ -23,17 +23,21 @@
 ## What the CVector actually is:
    Each cvector is actually a struct under the hood. The struct has three
    containers:
-   1. data[ ]: The actual array. It can be of any type.
-   2. size: A container of the type size_t. It stores the current size of 
-            data[ ].
-   3. capacity: A container of the type size_t. It stores the total memory
-                that has been allocated for data[ ]
+   -  data[ ]: The actual array. It can be of any type.
+   -  size: A container of the type size_t. It stores the current size of 
+      data[ ].
+   -  capacity: A container of the type size_t. It stores the total memory
+      that has been allocated for data[ ]
 
 ## Functions and Macros:
-    The use of the all the functions and the macros in this library is has 
-    been described below:
-    1. MACRO init_cvec(type,name) : It is the macro that initialises the cvector.
-                              - Calls the init_type() function
-    2. Abr pore likhbo dhur
-
-
+The use of the all the functions and the macros in this library is has 
+been described below:
+- MACRO cvector(int): 
+  - brings in the definition of the structure and the functions
+  - should be done outside any function as function definitions 
+    are not allowed to be in another function
+- MACRO init_cvec(type,name):
+  - Declares the structure using the type and name given
+    - name becomes identifyer 
+    - type becomes the datatype of the array inside the structure
+    
