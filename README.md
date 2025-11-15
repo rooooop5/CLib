@@ -6,9 +6,14 @@
 ## What the CVector actually is:
    Each cvector is actually a struct under the hood. The struct has three
    containers:
-   1. data[]: The actual array. It can be of any type.
+   1. data[ ]: The actual array. It can be of any type.
    2. size: A container of the type size_t. It stores the current size of 
-            data[].
+            data[ ].
    3. capacity: A container of the type size_t. It stores the total memory
-                that has been allocated for data[]
+                that has been allocated for data[ ]
+## Functions and Macros:
+    The use of the all the functions and the macros in this library is has 
+    been described below.
+    ### init_cvec
+
 
