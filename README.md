@@ -3,6 +3,26 @@
   - dynamic arrays of any type
   - useful functions for implementing pushing,popping,
     iterating with macros in a user friendly way
+## Design choice for the vectors:
+  - For implementing type safety and prioritising userfriendly-ness
+    (pratically absent in C) i have implemented type-specifc code. 
+    - This means for each vector have stores a different data type,
+      we would first need to initialise that type of vector using 
+      macros.
+
+    - Each initialisation would define a new type speicific structure
+      and type specific functions that manipulate the cvector.
+    - Example: If i say i want to use cvector of type int, the following 
+      would happen:
+      - a struct would be defined that only holds ints
+      - functions would be defined that only manipulate ints 
+      Now if I i want to use cvectors of type float, again:
+      - a struct would be defined that contains a dynamic array that only
+        holds float
+      - functions would be defined that only manipulate ints 
+
+    
+
 ## What the CVector actually is:
    Each cvector is actually a struct under the hood. The struct has three
    containers:
@@ -11,9 +31,10 @@
             data[ ].
    3. capacity: A container of the type size_t. It stores the total memory
                 that has been allocated for data[ ]
+
 ## Functions and Macros:
     The use of the all the functions and the macros in this library is has 
     been described below.
-    ### init_cvec
+    1. ini
 
 
