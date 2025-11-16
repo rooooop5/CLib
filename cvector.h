@@ -9,7 +9,6 @@
         size_t size; \
         size_t capacity;\
     }cvector_##type; \
-\
     static inline void init_##type(cvector_##type *v)\
     { \
         v->data=NULL;\
@@ -48,10 +47,6 @@
         for(int  __o_n_c_e_=1; __o_n_c_e_; __o_n_c_e_=0)\
             for(type i_t__e__r_a_t_or=(v.data[i]);__o_n_c_e_;__o_n_c_e_=0)
         
-
-
-
-
 #define init_cvec(type,name)\
     cvector_##type name;\
     init_##type(&name);
