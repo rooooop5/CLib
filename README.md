@@ -24,10 +24,10 @@ been described below:
   - declares the structure using the type and name given
     - name becomes identifyer 
     - type becomes the datatype of the array inside the structure
-- FUNCTION typecv_push(cvector_type* , type value):
+- FUNCTION cvec_type_push(cvector_type* , type value):
   - appends to the cvector
   - needs the memory address of the cvector and the value to be appended
-- FUNCTION typecv_pop(cvector_type* v)
+- FUNCTION cvec_type_pop(cvector_type* v)
   - removes the last element of the cvector
   - returns the last element of the cvector
 - FUNCTION cvec_type_remove(cvector_type* v,int idx)
