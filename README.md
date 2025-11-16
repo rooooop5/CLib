@@ -214,9 +214,6 @@ typedef struct person {
 cvector(int);
 cvector(person);
 
-DEFINE_CVECTOR_FUNCTIONS(int)
-DEFINE_CVECTOR_FUNCTIONS(person)
-
 int main() {
     cvector_int v = init_cvector(int);
 
@@ -245,7 +242,6 @@ int main() {
 
 # ⚠️ Notes & Best Practices
 
-- Always call `DEFINE_CVECTOR_FUNCTIONS(type)` after declaring a vector type.  
 - No automatic bounds checking — unsafe index access will crash the program.  
 - `insert` and `remove` are O(n) operations; `push`/`pop` are amortized O(1).  
 - The vector **never shrinks automatically**; to reduce memory manually, realloc outside the library.  
