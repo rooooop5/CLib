@@ -1,24 +1,8 @@
-# CVector Library: Simple generic implementation of dynamic arrays.
+# CVector Library: Simple type-specific implementation of dynamic arrays.
 ## Features :
   - dynamic arrays of any type
   - useful functions for implementing pushing,popping,
     iterating with macros in a user friendly way
-## Design choice for the vectors(READ ONLY IF INTERESTED IN UNDER THE HOOD STUFF)
-  - For implementing type safety and prioritising userfriendly-ness
-    (pratically absent in C) i have implemented type-specifc code. 
-    - This means for each vector that stores a different data type,
-      we would first need to initialise that type of vector using 
-      macros.
-    - Each initialisation would define a new type speicific structure
-      and type specific functions that manipulate the cvector.
-    - Example: I want to use cvector of type int, the following 
-      would happen:
-       - a struct would be defined that only holds ints
-       - functions would be defined that only manipulate ints 
-       Now if I i want to use cvectors of type float, again:
-        - a struct would be defined that contains a dynamic array that only
-        holds float
-        - functions would be defined that only manipulate float
 
 ## What the CVector actually is:
    Each cvector is actually a struct under the hood. The struct has three
@@ -37,7 +21,42 @@ been described below:
   - should be done outside any function as function definitions 
     are not allowed to be in another function
 - MACRO init_cvec(type,name):
-  - Declares the structure using the type and name given
+  - declares the structure using the type and name given
     - name becomes identifyer 
     - type becomes the datatype of the array inside the structure
-    
+- FUNCTION typecv_push(cvector_type* , type value):
+  - appends to the cvector
+  - needs the memory address of the cvector and the value to be appended
+- FUNCTION typecv_pop(cvector_type* v)
+  - removes the last element of the cvector
+  - returns the last element of the cvector
+- FUNCTION cvec_type_remove(cvector_type* v,int idx)
+  - removes the element at the given index of the cvector
+- MACRO iterate_byval(cvector_type v,iterator,type)
+  - iterates through the cvector by value
+  - read only
+  - arguments needed are the cvector,the iterator variable (no need to declare
+    it before use, macro handles it), and the type of the cvector
+- MACRO iterate_byref(cvector_type v,iterator,type)
+  - iterates through the cvector by ref
+  - read or write in place
+  - arguments needed are the cvector,the iterator variable (no need to declare
+    it before use, macro handles it), and the type of the cvector
+
+## Design choice for the vectors(READ ONLY IF INTERESTED IN UNDER THE HOOD STUFF)
+  - For implementing type safety and prioritising userfriendly-ness
+    (pratically absent in C) i have implemented type-specifc code. 
+    - This means for each vector that stores a different data type,
+      we would first need to initialise that type of vector using 
+      macros.
+    - Each initialisation would define a new type-speicific structure
+      and type-specific functions that manipulate the cvector.
+    - Example: I want to use cvector of type int, the following 
+      would happen:
+       - a struct would be defined that contains a dynamic array that only 
+         holds ints
+       - functions would be defined that only manipulate int arrays
+    - Now if I want to use cvectors of type float, again:
+        - a struct would be defined that contains a dynamic array that only
+        holds float
+        - functions would be defined that only manipulate float arrays
