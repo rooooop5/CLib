@@ -40,13 +40,14 @@
 
 #define iterate_byref(v,_i_te__rat_or,type)\
     for(size_t i=0;i<v.size;i++) \
-        for(type* _i_te__rat_or=&(v.data[i]), __o_n_c_e_=(type)1;__o_n_c_e_;__o_n_c_e_=0)
+        for(int  __o_n_c_e_=1; __o_n_c_e_; __o_n_c_e_=0)\
+            for(type* _i_te__rat_or=&(v.data[i]); __o_n_c_e_;__o_n_c_e_=0)
 
 #define iterate_byval(v,i_t__e__r_a_t_or,type)\
     for(size_t i=0;i<v.size;i++) \
-        for(type i_t__e__r_a_t_or=(v.data[i]), __o_n_c_e_=(type)1;__o_n_c_e_;__o_n_c_e_=0)
+        for(int  __o_n_c_e_=1; __o_n_c_e_; __o_n_c_e_=0)\
+            for(type i_t__e__r_a_t_or=(v.data[i]);__o_n_c_e_;__o_n_c_e_=0)
         
-
 
 
 
