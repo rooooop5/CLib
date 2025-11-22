@@ -143,21 +143,21 @@
         }\
     }while(0);
 
-#define cvec_push(cvector,type,value) cvec_##type##_push(&(cvector),value)
-#define cvec_pop(cvector,type) cvec_##type##_pop(&(cvector))
-#define cvec_remove(cvector,type,idx) cvec_##type##_remove(&(cvector),idx)
-#define cvec_erase(cvector,type,start,end) cvec_##type##_erase(&(cvector),start,end)
-#define cvec_clear(cvector,type) cvec_##type_##clear(&(cvector))
-#define cvec_find(cvector,type,value) cvec_##type##_find(&(cvector),value)
-#define cvec_insert(cvector,type,value,idx,copies) cvec_##type##_insert(&(cvector),value,idx,copies)
-#define cvec_resize(cvector,type,value) cvec_##type##_resize(&(cvector),value)
-#define cvec_reserve(cvector,type,value) cvec_##type##_reserve(&(cvector),value)
-#define cvec_shrink_to_fit(cvector,type) cvec_##type##_stf(&(cvector))
-#define cvec_get(cvector,idx) (cvector).data[idx]
-#define cvec_last(cvector) (cvector).data[(cvector).size-1]
-#define cvec_first(cvector) (cvector).data[0]
-#define cvec_len(cvector) (cvector).size
-#define cvec_capacity(cvector) (cvector).capacity
+#define cvector_push(cvector,type,value) cvec_##type##_push(&(cvector),value)
+#define cvector_pop(cvector,type) cvec_##type##_pop(&(cvector))
+#define cvector_remove(cvector,type,idx) cvec_##type##_remove(&(cvector),idx)
+#define cvector_erase(cvector,type,start,end) cvec_##type##_erase(&(cvector),start,end)
+#define cvector_clear(cvector,type) cvec_##type_##clear(&(cvector))
+#define cvector_find(cvector,type,value) cvec_##type##_find(&(cvector),value)
+#define cvector_insert(cvector,type,value,idx,copies) cvec_##type##_insert(&(cvector),value,idx,copies)
+#define cvector_resize(cvector,type,value) cvec_##type##_resize(&(cvector),value)
+#define cvector_reserve(cvector,type,value) cvec_##type##_reserve(&(cvector),value)
+#define cvector_shrink_to_fit(cvector,type) cvec_##type##_stf(&(cvector))
+#define cvector_get(cvector,idx) (cvector).data[idx]
+#define cvector_last(cvector) (cvector).data[(cvector).size-1]
+#define cvector_first(cvector) (cvector).data[0]
+#define cvector_len(cvector) (cvector).size
+#define cvector_capacity(cvector) (cvector).capacity
 #define new_cvector(type) (cvector_##type){.data=NULL,.size=0,.capacity=0} 
 #define cvector(type) cvector_##type 
 #endif
